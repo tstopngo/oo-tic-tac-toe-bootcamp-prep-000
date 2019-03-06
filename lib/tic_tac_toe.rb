@@ -64,7 +64,7 @@ class TicTacToe
       if board[win_combo[0]] == board[win_combo[1]] && board[win_combo[1]] == board[win_combo[2]] && position_taken?(board,win_combo[0])
         winner = win_combo
       end
-    en  
+    end  
     winner
   end
 
@@ -106,5 +106,5 @@ class TicTacToe
           puts "Cat's Game!"
         end
   end
-
+  
 end
