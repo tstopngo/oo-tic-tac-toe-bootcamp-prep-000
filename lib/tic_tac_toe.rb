@@ -31,16 +31,6 @@ class TicTacToe
     index.between?(0,8) && !position_taken?(@board, index)
   end
   
-  def turn_count(@board)
-    counter = 0
-    @board.each do |token|
-      if token == "X" || token == "O"
-      counter += 1
-      end
-    end
-    counter
-  end
-  
   def turn(@board)
     puts "Please enter 1-9:"
     input = gets.strip
@@ -52,6 +42,16 @@ class TicTacToe
     else
       turn(@board)
     end
+  end
+  
+    def turn_count(@board)
+    counter = 0
+    @board.each do |token|
+      if token == "X" || token == "O"
+      counter += 1
+      end
+    end
+    counter
   end
   
   def current_player(@board)
