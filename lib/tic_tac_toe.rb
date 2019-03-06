@@ -45,20 +45,20 @@ class TicTacToe
     puts "Please enter 1-9:"
     input = gets.strip
     index = input_to_index(input)
-    token = current_player(board)
-    if valid_move?(board, index)
-      move(board, index, token)
-      display_board(board)
+    token = current_player(@board)
+    if valid_move?(@board, index)
+      move(@board, index, token)
+      display_board(@board)
     else
-      turn(board)
+      turn(@board)
     end
   end
   
-  def current_player(board)
-    turn_count(board).even? ? "X" : "O"
+  def current_player(@board)
+    turn_count(@board).even? ? "X" : "O"
   end
   
-  def won?(board)
+  def won?(@board)
     winner = false
     WIN_COMBINATIONS.each do |win_combo|
       if board[win_combo[0]] == board[win_combo[1]] && board[win_combo[1]] == board[win_combo[2]] && position_taken?(board,win_combo[0])
@@ -68,44 +68,43 @@ class TicTacToe
     winner
   end
 
-  def full?(board)
-    !board.any? { |position| position == " " }
+  def full?(@board)
+    !@board.any? { |position| position == " " }
   end
   
-  def draw?(board)
-    if !won?(board) && full?(board)
+  def draw?(@board)
+    if !won?(@board) && full?(@board)
       return true
     else
       return false
     end
   end
   
-  def over?(board)
-    if won?(board) || full?(board) || draw?(board)
+  def over?(@board)
+    if won?(@board) || full?(@board) || draw?(@board)
       return true
     else
       return false
     end
   end
   
-  def winner(board)
-    if won?(board)
-      win_set = won?(board)
-      return board[win_set[0]]
+  def winner(@board)
+    if won?(@board)
+      win_set = won?(@board)
+      return @board[win_set[0]]
     end
   end
   
-  def play(board)
-    until over?(board) == true
-      turn(board)
+  def play(@board)
+    until over?(@board) == true
+      turn(@board)
     end
-        if won?(board) 
-          win_combo = won?(board)
+        if won?(@board) 
+          win_combo = won?(@board)
           puts "Congratulations #{winner(board)}!"
-        elsif draw?(board)
+        elsif draw?(@board)
           puts "Cat's Game!"
         end
   end
-  
 
 end
