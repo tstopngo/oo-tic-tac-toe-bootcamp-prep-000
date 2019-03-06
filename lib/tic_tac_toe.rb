@@ -27,11 +27,11 @@ class TicTacToe
     !(@board[index].nil? || @board[index] == " ")
   end
   
-  def valid_move?(@board, index)
+  def valid_move?(index)
     index.between?(0,8) && !position_taken?(@board, index)
   end
   
-  def turn(@board)
+  def turn
     puts "Please enter 1-9:"
     input = gets.strip
     index = input_to_index(input)
