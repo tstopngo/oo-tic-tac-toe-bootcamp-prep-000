@@ -101,7 +101,7 @@ class TicTacToe
     end
         if won?
           win_combo = won?
-          puts "Congratulations #{winner    }!"
+          puts "Congratulations #{winner}!"
         elsif draw?
           puts "Cat's Game!"
         end
