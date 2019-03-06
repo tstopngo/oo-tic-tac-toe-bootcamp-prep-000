@@ -55,7 +55,7 @@ class TicTacToe
   end
   
   def current_player
-    turn_count(@board).even? ? "X" : "O"
+    turn_count.even? ? "X" : "O"
   end
   
   def won?
@@ -73,7 +73,7 @@ class TicTacToe
   end
   
   def draw?
-    if !won?(@board) && full?(@board)
+    if !won? && full?
       return true
     else
       return false
@@ -81,7 +81,7 @@ class TicTacToe
   end
   
   def over?
-    if won?(@board) || full?(@board) || draw?(@board)
+    if won? || full? || draw?
       return true
     else
       return false
@@ -89,20 +89,20 @@ class TicTacToe
   end
   
   def winner
-    if won?(@board)
-      win_set = won?(@board)
+    if won?
+      win_set = won?
       return @board[win_set[0]]
     end
   end
   
   def play
-    until over?(@board) == true
-      turn(@board)
+    until over? == true
+      turn
     end
-        if won?(@board) 
-          win_combo = won?(@board)
+        if won?
+          win_combo = won?
           puts "Congratulations #{winner(board)}!"
-        elsif draw?(@board)
+        elsif draw?
           puts "Cat's Game!"
         end
   end
