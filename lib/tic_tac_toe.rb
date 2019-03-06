@@ -44,7 +44,7 @@ class TicTacToe
     end
   end
   
-  def turn_count(@board)
+  def turn_count
     counter = 0
     @board.each do |token|
       if token == "X" || token == "O"
@@ -54,11 +54,11 @@ class TicTacToe
     counter
   end
   
-  def current_player(@board)
+  def current_player
     turn_count(@board).even? ? "X" : "O"
   end
   
-  def won?(@board)
+  def won?
     winner = false
     WIN_COMBINATIONS.each do |win_combo|
       if board[win_combo[0]] == board[win_combo[1]] && board[win_combo[1]] == board[win_combo[2]] && position_taken?(board,win_combo[0])
@@ -68,11 +68,11 @@ class TicTacToe
     winner
   end
 
-  def full?(@board)
+  def full?
     !@board.any? { |position| position == " " }
   end
   
-  def draw?(@board)
+  def draw?
     if !won?(@board) && full?(@board)
       return true
     else
@@ -80,7 +80,7 @@ class TicTacToe
     end
   end
   
-  def over?(@board)
+  def over?
     if won?(@board) || full?(@board) || draw?(@board)
       return true
     else
@@ -88,14 +88,14 @@ class TicTacToe
     end
   end
   
-  def winner(@board)
+  def winner
     if won?(@board)
       win_set = won?(@board)
       return @board[win_set[0]]
     end
   end
   
-  def play(@board)
+  def play
     until over?(@board) == true
       turn(@board)
     end
