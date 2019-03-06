@@ -15,7 +15,7 @@ class TicTacToe
   end
   
   def input_to_index(user_input)
-    @index=user_input.to_i - 1
+    user_input.to_i - 1
   end
   
   def move(@board[@index], token == X)
@@ -67,7 +67,7 @@ class TicTacToe
       if board[win_combo[0]] == board[win_combo[1]] && board[win_combo[1]] == board[win_combo[2]] && position_taken?(board,win_combo[0])
         winner = win_combo
       end
-    end
+    en  
     winner
   end
 
